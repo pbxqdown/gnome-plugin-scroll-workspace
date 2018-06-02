@@ -60,7 +60,7 @@ function enable() {
     wrapRight = new St.Widget({x_expand: true, y_expand: true,
         x_align: Clutter.ActorAlign.END,
         y_align: Clutter.ActorAlign.END});
-    wrapRight.set_size(5, monitor.height);
+    wrapRight.set_size(1, monitor.height);
 
     //Deploy wrappers
     actor.add_actor(wrapRight);
