@@ -55,6 +55,11 @@ function enable() {
         clip_to_allocation: true,
         layout_manager: new Clutter.BinLayout()
     });
+
+    // When the actor has a clip, it somehow breaks drag-and-drop funcionality in
+    // the overview. We remove the actor's clip to avoid this.
+    actor.set_clip(0, 0, 0, 0);
+
     actor.add_constraint(new Layout.MonitorConstraint({primary: true, work_area: true}));
     Main.layoutManager.addChrome(actor, {affectsInputRegion: false});
     wrapRight = new St.Widget({x_expand: true, y_expand: true,
