@@ -1,2 +1,6 @@
 # gnome-plugin-scroll-workspace
-Move mouse to the right edge, scroll it, and enjoy :) 
+## Usage
+Move mouse to the right edge of screen, scroll it, and enjoy :) 
+
+# Environment
+Tested on Ubuntu 18.04 Gnome 3.28 and Ubuntu 19.10 Gnome 3.34.

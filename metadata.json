@@ -3,7 +3,10 @@
   "description": "Scroll mouse on the right edge to switch workspace",
   "name": "Scroll Workspace",
   "shell-version": [
-    "3.28.1"
+    "3.28",
+    "3.30",
+    "3.32",
+    "3.34"
   ],
   "url": "https://github.com/pbxqdown/gnome-plugin-scroll-workspace",
   "uuid": "Scroll_Workspace@heyheyco.gmail.com",

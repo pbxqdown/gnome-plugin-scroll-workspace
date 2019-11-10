@@ -4,11 +4,17 @@ const Meta = imports.gi.Meta;
 const Clutter = imports.gi.Clutter;
 const Layout = imports.ui.layout;
 
+const ShellVersion = imports.misc.config.PACKAGE_VERSION.split('.').slice(0, 2).join('.');
+
+function isVersionAbove(major, minor) {
+    return ShellVersion > major + '.' + minor;
+}
+
 let button, actor, wrapRight;
 
 function _onScroll(actor, event) {
     let motion;
-    let dir = event.get_scroll_direction()
+    let dir = event.get_scroll_direction();
     switch(dir) {
         case Clutter.ScrollDirection.UP:
             motion = Meta.MotionDirection.UP;
@@ -25,7 +31,8 @@ function _onScroll(actor, event) {
         default:
             return Clutter.EVENT_PROPAGATE;
     }
-    let activeWs = global.screen.get_active_workspace();
+    let wsManager = isVersionAbove(3, 28) ? global.workspace_manager : global.screen;
+    let activeWs = wsManager.get_active_workspace();
     let ws = activeWs.get_neighbor(motion);
     if(!ws) return Clutter.EVENT_STOP;
     Main.wm.actionMoveWorkspace(ws);
